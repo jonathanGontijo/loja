@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loja/common/widgets/custom_textfield.dart';
 import 'package:loja/constants/global_variables.dart';
-import 'package:loja/features/auth/screens/custom_button.dart';
+import 'package:loja/common/widgets/custom_button.dart';
 import 'package:loja/features/auth/services/auth_service.dart';
 
 enum Auth {
