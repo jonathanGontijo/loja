@@ -20,7 +20,14 @@ class _TopButtonsState extends State<TopButtons> {
             AccountButton(text: 'Turn Seller', onTap: () {}),
           ],
         ),
-        Row(),
+        SizedBox(height: 10),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            AccountButton(text: 'Log Out', onTap: () {}),
+            AccountButton(text: 'Your Wish List', onTap: () {}),
+          ],
+        ),
       ],
     );
   }

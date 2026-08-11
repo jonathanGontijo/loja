@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loja/constants/global_variables.dart';
 import 'package:loja/features/account/widgets/bellow_app_bar.dart';
+import 'package:loja/features/account/widgets/orders.dart';
 import 'package:loja/features/account/widgets/top_buttons.dart';
 
 class AccountScreen extends StatelessWidget {
@@ -54,7 +55,8 @@ class AccountScreen extends StatelessWidget {
           SizedBox(height: 10),
           TopButtons(),
           SizedBox(height: 20),
-          Container(color: Colors.black12, height: 1),
+          SizedBox(height: 10),
+          Orders(),
         ],
       ),
     );
