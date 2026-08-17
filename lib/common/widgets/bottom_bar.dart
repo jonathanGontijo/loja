@@ -2,6 +2,7 @@ import 'package:flutter/material.dart' hide Badge;
 import 'package:loja/constants/global_variables.dart';
 import 'package:badges/badges.dart';
 import 'package:loja/features/account/screens/account_screen.dart';
+import 'package:loja/features/home/screens/home_screen.dart';
 
 class BottomBar extends StatefulWidget {
   static const String routeName = '/actual-home';
@@ -17,13 +18,9 @@ class _BottomBarState extends State<BottomBar> {
   double bottomBarBorderWidth = 5;
 
   List<Widget> pages = [
-    const Center(
-      child: Text('Home Page'),
-    ),
+    const HomeScreen(),
     const AccountScreen(),
-    const Center(
-      child: Text('Cart Page'),
-    ),
+    const Center(child: Text('Cart Page')),
   ];
 
   void updatePage(int page) {
@@ -93,16 +90,22 @@ class _BottomBarState extends State<BottomBar> {
                   ),
                 ),
               ),
-              child:  Badge(
+              child: Badge(
                 elevation: 0,
                 badgeContent: const Text('2'),
                 badgeColor: Colors.white,
-                child: Icon(Icons.shopping_cart_outlined,
-                 color: _page == 2 ? GlobalVariables.selectedNavBarColor : GlobalVariables.unselectedNavBarColor,),),
+                child: Icon(
+                  Icons.shopping_cart_outlined,
+                  color: _page == 2
+                      ? GlobalVariables.selectedNavBarColor
+                      : GlobalVariables.unselectedNavBarColor,
+                ),
+              ),
             ),
             label: '',
-          )
-        ]
-      ),);
+          ),
+        ],
+      ),
+    );
   }
 }
