@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loja/common/widgets/bottom_bar.dart';
 import 'package:loja/constants/global_variables.dart';
+import 'package:loja/features/admin/screens/admin_screen.dart';
 import 'package:loja/features/auth/screens/auth_screen.dart';
 import 'package:loja/features/auth/services/auth_service.dart';
 import 'package:loja/providers/user_provider.dart';
@@ -50,7 +51,9 @@ class _MyAppState extends State<MyApp> {
       ),
       onGenerateRoute: (settings) => generateRoute(settings),
       home: Provider.of<UserProvider>(context).user.token.isNotEmpty
-          ? const BottomBar()
+          ? Provider.of<UserProvider>(context).user.type == 'user'
+                ? const BottomBar()
+                : const AdminScreen()
           : const AuthScreen(),
     );
   }
