@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:loja/common/widgets/loader.dart';
 import 'package:loja/constants/global_variables.dart';
 import 'package:loja/features/home/widgets/address_box.dart';
+import 'package:loja/features/product_details/screens/product_details_screen.dart';
 import 'package:loja/features/search/services/search_services.dart';
 import 'package:loja/features/search/widget/searched_products.dart';
 import 'package:loja/models/product.dart';
@@ -126,7 +127,18 @@ class _SearchScreenState extends State<SearchScreen> {
                         child: ListView.builder(
                           itemCount: products!.length,
                           itemBuilder: (context, index) {
-                            return SearchedProducts(product: products![index]);
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(
+                                  context,
+                                  ProductDetailsScreen.routeName,
+                                  arguments: products![index],
+                                );
+                              },
+                              child: SearchedProducts(
+                                product: products![index],
+                              ),
+                            );
                           },
                         ),
                       ),
