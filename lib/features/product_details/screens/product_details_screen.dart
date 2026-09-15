@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:loja/common/widgets/custom_button.dart';
 import 'package:loja/common/widgets/stars.dart';
 import 'package:loja/constants/global_variables.dart';
+import 'package:loja/features/product_details/services/product_details_service.dart';
 import 'package:loja/features/search/screens/search_screen.dart';
 import 'package:loja/models/product.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -17,6 +18,7 @@ class ProductDetailsScreen extends StatefulWidget {
 }
 
 class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
+  final ProductDetailsService productDetailsService = ProductDetailsService();
   void navigateToSearchScreen(String query) {
     Navigator.pushNamed(context, SearchScreen.routeName, arguments: query);
   }
@@ -193,6 +195,11 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   Icon(Icons.star, color: Colors.amber),
               onRatingUpdate: (rating) {
                 print(rating);
+                productDetailsService.rateProduct(
+                  context: context,
+                  product: widget.product,
+                  rating: rating,
+                );
               },
             ),
           ],
