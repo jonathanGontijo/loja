@@ -4,10 +4,19 @@ import 'package:loja/models/product.dart';
 
 class SearchedProducts extends StatelessWidget {
   final Product product;
-  const SearchedProducts({super.key, required this.product});
+  SearchedProducts({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
+    double totalRating = 0;
+    for (int i = 0; i < product.rating!.length; i++) {
+      totalRating += product.rating![i].rating;
+    }
+    double avgRating = 0;
+    if (totalRating != 0) {
+      avgRating = totalRating / product.rating!.length;
+    }
+
     return Column(
       children: [
         Container(
@@ -35,7 +44,7 @@ class SearchedProducts extends StatelessWidget {
                   Container(
                     width: 235,
                     padding: const EdgeInsets.only(left: 10, top: 5),
-                    child: Stars(rating: 4),
+                    child: Stars(rating: avgRating),
                   ),
                   Container(
                     width: 235,
